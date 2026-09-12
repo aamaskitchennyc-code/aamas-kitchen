@@ -16,7 +16,11 @@ html{scroll-behavior:smooth}
 body{margin:0;color:var(--ink);background:var(--paper);font-family:"DM Sans",sans-serif;line-height:1.6}
 a{color:inherit}
 .site-header{height:86px;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;border-bottom:1px solid var(--line);background:rgba(255,253,249,.96);position:sticky;top:0;z-index:20}
-.brand img{width:165px;height:auto;display:block}
+.brand img {
+  height: 50px;      /* Set height to fit your navbar */
+  width: auto;       /* Maintains correct aspect ratio */
+  display: block;
+}
 .nav{display:flex;gap:30px;font-size:14px;font-weight:600}
 .nav a{text-decoration:none}
 .nav a:hover{color:var(--accent)}
