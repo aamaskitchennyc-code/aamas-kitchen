@@ -320,6 +320,7 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
+  width: 100%;
 }
 
 .menu-card-item {
@@ -555,7 +556,7 @@ footer {
   .lead {
     font-size: 19px;
   }
-  .feature-grid, .menu-cards, .catering-grid, .visit {
+  .feature-grid, .menu-cards, .menu-grid, .catering-grid, .visit {
     grid-template-columns: 1fr;
   }
   .cta {
