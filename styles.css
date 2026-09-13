@@ -3350,3 +3350,63 @@ transform:
   }
 
 }
+/* =========================================================
+   AAMA'S KITCHEN — MENU CULTURAL WATERMARK
+   Strictly limited to the Menu section
+========================================================= */
+
+.menu-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+/* Cultural landmark watermark */
+.menu-section::before {
+  content: "";
+
+  position: absolute;
+
+  width: 850px;
+  height: 850px;
+
+  right: -180px;
+  top: 180px;
+
+  background-image: url("cultural-landmark.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  opacity: 0.055;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  transform: rotate(-2deg);
+}
+
+/* Keep all menu content above the watermark */
+.menu-section > .section-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================================
+   MOBILE WATERMARK
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .menu-section::before {
+    width: 600px;
+    height: 600px;
+
+    right: -230px;
+    top: 260px;
+
+    opacity: 0.04;
+  }
+
+}
