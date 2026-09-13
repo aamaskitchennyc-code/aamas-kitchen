@@ -1,583 +1,1632 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Welcome to Aama’s Kitchen—Jackson Heights’ spot for genuine Himalayan comfort food. We prepare traditional home-cooked recipes fresh daily using authentic spices and quality ingredients. Join us for a sit-down meal or grab your favorite dishes on the go!">
-  <title>Aama's Kitchen | Nepali Cuisine</title>
+
+<meta
+name="description"
+content="Aama’s Kitchen in Jackson Heights, NY — authentic Nepali and Himalayan comfort food, traditional Thali, Mo:Mo, Thukpa, Chowmein and more."
+
+>
+
+  <meta name="theme-color" content="#171310">
+
+  <title>Aama's Kitchen | Authentic Nepali Cuisine</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <header class="site-header">
-    <a class="brand" href="#home" aria-label="Aama's Kitchen Home">
-  <img src="logo.png" alt="Aama's Kitchen - Nepali Cuisine Logo">
-</a>
-    <button class="menu-toggle" aria-label="Open navigation">☰</button>
-    <nav class="nav">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#menu">Menu</a>
-      <a href="#catering">Catering</a>
-      <a href="#visit">Visit</a>
-    </nav>
+
+  <!-- =====================================================
+       HEADER
+  ====================================================== -->
+
+  <header class="site-header" id="site-header">
+
+```
+<div class="header-inner">
+
+  <a
+    class="brand"
+    href="#home"
+    aria-label="Aama's Kitchen Home"
+  >
+    <img
+      src="logo.png"
+      alt="Aama's Kitchen - Nepali Cuisine"
+    >
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-label="Open navigation"
+    aria-expanded="false"
+    aria-controls="main-navigation"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <nav
+    class="nav"
+    id="main-navigation"
+    aria-label="Main navigation"
+  >
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#catering">Catering</a>
+    <a href="#visit">Visit</a>
+  </nav>
+
+</div>
+```
+
   </header>
 
   <main>
-    <section id="home" class="hero">
-     
-      <div class="hero-content">
-        <p class="eyebrow">NEPALI CUISINE · JACKSON HEIGHTS</p>
-        <h1>A Taste of Home.</h1>
-        <p class="hero-copy">Welcome to Aama’s Kitchen—Jackson Heights’ spot for genuine Himalayan comfort food. We prepare traditional home-cooked recipes fresh daily using authentic spices and quality ingredients. Join us for a sit-down meal or grab your favorite dishes on the go.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#menu">Explore the Menu</a>
-          <a class="button outline" href="tel:+13478089595">Call (347) 808-9595</a>
+
+```
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section
+  id="home"
+  class="hero"
+  aria-labelledby="hero-title"
+>
+
+  <div class="hero-inner">
+
+    <div class="hero-content">
+
+      <div class="hero-kicker">
+        <span></span>
+        Nepali Cuisine · Jackson Heights
       </div>
-        <section id="home" class="hero">
-          
-          <div class="hero-content">
 
-    <p class="eyebrow">
-      NEPALI CUISINE · JACKSON HEIGHTS
-    </p>
+      <h1 id="hero-title">
+        A Taste<br>
+        <em>of Home.</em>
+      </h1>
 
-    <h1>A Taste of Home.</h1>
+      <p class="hero-copy">
+        Welcome to Aama’s Kitchen—Jackson Heights’ spot for genuine
+        Himalayan comfort food. We prepare traditional home-cooked
+        recipes fresh daily using authentic spices and quality
+        ingredients. Join us for a sit-down meal or grab your favorite
+        dishes on the go.
+      </p>
 
-    <p class="hero-copy">
-      Welcome to Aama’s Kitchen—Jackson Heights’ spot for genuine
-      Himalayan comfort food. We prepare traditional home-cooked
-      recipes fresh daily using authentic spices and quality
-      ingredients. Join us for a sit-down meal or grab your favorite
-      dishes on the go.
-    </p>
+      <div class="hero-actions">
 
-    <div class="hero-actions">
+        <a
+          class="button button-primary"
+          href="#menu"
+        >
+          Explore the Menu
+          <span class="button-arrow">→</span>
+        </a>
 
-      <a class="button primary" href="#menu">
-        Explore the Menu
-      </a>
+        <a
+          class="button button-outline"
+          href="tel:+13478089595"
+        >
+          Call (347) 808-9595
+        </a>
 
-      <a class="button outline" href="tel:+13478089595">
-        Call (347) 808-9595
-      </a>
+      </div>
+
+      <div class="hero-meta">
+
+        <div class="hero-meta-item">
+          <strong>Authentic</strong>
+          <span>Himalayan recipes</span>
+        </div>
+
+        <div class="hero-meta-divider"></div>
+
+        <div class="hero-meta-item">
+          <strong>Fresh Daily</strong>
+          <span>Made with care</span>
+        </div>
+
+        <div class="hero-meta-divider"></div>
+
+        <div class="hero-meta-item">
+          <strong>Jackson Heights</strong>
+          <span>Queens, New York</span>
+        </div>
+
+      </div>
 
     </div>
 
-  </div>
 
+    <div class="hero-image-wrap">
 
-  <div class="hero-image">
+      <div class="hero-image">
 
-    <img
-      src="thali.png"
-      alt="Authentic Nepali Thali Set"
-    >
+        <img
+          src="thali.png"
+          alt="Traditional Nepali Thali from Aama's Kitchen"
+        >
+
+      </div>
+
+      <div class="hero-image-label">
+        <span class="label-dot"></span>
+        Traditional Nepali Thali
+      </div>
+
+    </div>
 
   </div>
 
 </section>
 
-    <section id="about" class="section intro">
-      <div class="section-heading">
-        <p class="eyebrow">WELCOME TO AAMA'S</p>
-        <h2>Food that feels like home.</h2>
-      </div>
-      <p class="lead">Aama’s Kitchen brings the comforting, authentic flavors of traditional Nepalese home cooking to Jackson Heights, NY. Operating as an extension of the iconic Annapurna Thakali Kitchen, Aama’s Kitchen carries forward a proud legacy of culinary excellence, rooted in rich Himalayan heritage and authentic family recipes.
 
-Named in honor of "Aama"—the Nepali word for mother—our kitchen is built on the warmth, generosity, and care of home-cooked meals. Situated in the heart of Jackson Heights at 72-19 Roosevelt Avenue, we serve up classic Nepalese comfort food made from fresh ingredients, fragrant herbs, and traditional spices. From handcrafted Mo:Mo dumplings and savory snacks to hearty traditional Thali platters, every dish offers an authentic taste of Nepal. Whether you are dining in or picking up a meal on the go, Aama’s Kitchen welcomes you with the genuine hospitality of home.</p>
-      <div class="feature-grid">
-        <article><span>01</span><h3>Traditional flavors</h3><p>Comforting Nepali dishes inspired by home-style cooking.</p></article>
-        <article><span>02</span><h3>Vegetarian options</h3><p>A selection of satisfying vegetarian dishes is available.</p></article>
-        <article><span>03</span><h3>Catering</h3><p>Choose from small, medium and large catering portions for your gathering.</p></article>
-      </div>
-    </section>
+<!-- =====================================================
+     ABOUT
+====================================================== -->
 
-    <section id="menu" class="section menu-section">
-      <div class="section-heading centered">
-        <p class="eyebrow">AUTHENTIC NEPALI CUISINE</p>
-        <h2>Our Full Menu</h2>
-        <p>Fresh ingredients, traditional spices, and comforting flavors made fresh daily.</p>
+<section
+  id="about"
+  class="section about-section"
+>
+
+  <div class="section-container">
+
+    <div class="section-intro">
+
+      <div class="section-kicker">
+        <span></span>
+        Welcome to Aama's
       </div>
 
-      <!-- NASTA -->
-      <div class="menu-category">
-        <h3>Nasta</h3>
-        <div class="menu-grid">
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Boiled Eggs (2 Pcs)</h4>
-                <span class="price">$5</span>
-              </div>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Scrambled Eggs</h4>
-                <span class="price">$6</span>
-              </div>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Sunnyside Egg (2 Pcs)</h4>
-                <span class="price">$6</span>
-              </div>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Sukkha Roti (3 Pcs)</h4>
-                <span class="price">$6</span>
-              </div>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Aalu Chanaa</h4>
-                <span class="price">$7</span>
-              </div>
-              <p>Traditional dish of tender potatoes and chanaa simmered in creamy tomato gravy, infused with aromatic herbs and spices.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Roti Tarkari Set</h4>
-                <span class="price">$13</span>
-              </div>
-              <p>Set with 3 pcs of roti, aloo chana/kerau, 2 boiled eggs, and salad.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h2>
+        Food that feels<br>
+        <em>like home.</em>
+      </h2>
 
-      <!-- AMILO PIRO -->
-      <div class="menu-category">
-        <h3>Amilo Piro</h3>
-        <div class="menu-grid">
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Wai Wai Sadeko</h4>
-                <span class="price">$10</span>
-              </div>
-              <p>Dried Nepali Noodle marinated with Spices, Onion, Green Chilly, Green peas and Drop of Fresh lemon Juice.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Paani Puri (8 Pcs)</h4>
-                <span class="price">$10</span>
-              </div>
-              <p>Crispy puris filled with a flavorful mix of potatoes, chickpeas, onions, and spices, served with a side of tangy tamarind water for dipping.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Papri Chaat</h4>
-                <span class="price">$12</span>
-              </div>
-              <p>Crispy papri topped with tangy tamarind chutney, creamy yogurt, spiced chickpeas, and potatoes, garnished with sev and aromatic herbs.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SITTAN (APPETIZER) -->
-      <div class="menu-category">
-        <h3>Sittan (Appetizer)</h3>
-        <div class="menu-grid">
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Kosa (Edamame)</h4>
-                <span class="price">$8</span>
-              </div>
-              <p>Steamed Fresh Green Soybean (Salted).</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Aalu Dum / Jeera</h4>
-                <span class="price">$10</span>
-              </div>
-              <p>Sautéed Potato Served with Sichuan Pepper and Himalayan Herbs & Spices.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Bhatmas Sadeko</h4>
-                <span class="price">$10</span>
-              </div>
-              <p>Roasted Soybeans mixed with Spices Red Onion, Green Chilly, Sliced Garlic, Sliced Ginger and drop of Fresh Lemon Juice.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Green Salad</h4>
-                <span class="price">$10</span>
-              </div>
-              <p>Slices of Fresh carrot, Cucumber Served with chat masala.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Kosa Spicy</h4>
-                <span class="price">$10</span>
-              </div>
-              <p>Fresh green soybean tossed in spicy chili sauce sauteed with garlic and red dry chili.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Peanuts Sadeko</h4>
-                <span class="price">$10</span>
-              </div>
-              <p>Roasted Peanuts mixed with Spices, Red onion, Green Chilly, Sliced Garlic, Sliced Ginger and fresh Lemon Juice.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Chicken Sadeko (Served Cold)</h4>
-                <span class="price">$15</span>
-              </div>
-              <p>Boneless chicken mixed with spices onion, sliced ginger, sliced garlic green chilly.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Chicken Gizzard (Pangra)</h4>
-                <span class="price">$15</span>
-              </div>
-              <p>Muscular Thick Walled Part of a Chicken Stir fried with Spices.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Goat Bhuttan</h4>
-                <span class="price">$15</span>
-              </div>
-              <p>Goat Intestine, Liver, Heart, Kidney and Tripe Stir-Fried with Green Chilly, Onion and Himalayan Herbs.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Pork Sadeko</h4>
-                <span class="price">$15</span>
-              </div>
-              <p>Fresh boneless pork grilled mixed with onion, sliced ginger, sliced garlic, green chilly and spices.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Beef Sukuti</h4>
-                <span class="price">$18</span>
-              </div>
-              <p>Dried Beef meat sautéed with Onion Garlic, Ginger, Tomato, Green Chilly and Spices.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Beef Sukuti Sadeko</h4>
-                <span class="price">$18</span>
-              </div>
-              <p>Traditional savory dish of dried beef strips sautéed with aromatic herbs, and hint of lemon.</p>
-            </div>
-          </div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Fish Fried</h4>
-                <span class="price">$18</span>
-              </div>
-              <p>Deep-fried Rohu fish marinated with authentic Himalayan spices.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- AAMA'S KHAANAA -->
-      <div class="menu-category">
-        <h3>Aama's Khaanaa</h3>
-        <p class="category-subtitle">A Traditional Combination Platter Served with Rice, Daal (lentil soup), Rayo Saag (Fresh mustard greens), Seasonal Vegetables, Mula Ko achar (Radish Pickle), Tite Karela (bitter gourds), Chutney (Tomato pickle), Gundruk (fermented leafy green vegetable) Salad, Papad and Choice of Curry.</p>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Veg Thali</h4><span class="price">$13</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken Thali (Gravy/Dry)</h4><span class="price">$15</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Egg Thali</h4><span class="price">$15</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Fish Thali (Gravy/Dry)</h4><span class="price">$17</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Pork Thali Dry</h4><span class="price">$17</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Goat Thali (Gravy/Dry)</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef Sukuti Thali</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef Curry Thali</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Pork Gravy Thali</h4><span class="price">$19</span></div></div></div>
-        </div>
-      </div>
-
-      <!-- DHENDO SET -->
-      <div class="menu-category">
-        <h3>Dhendo Set</h3>
-        <p class="category-subtitle">Himalayan traditional Platter Served with thick wheat Porridge/mush made by corn meal flour/buckwheat with daal (Lentil Soup), Rayo Saag(Fresh Mustard Greens) Seasonal Vegetables, Mula Ko achar (Radish Pickle), Tite Karela (Bitter Gourds) Chutney (Tomato Pickle), Gundruk (fermented leafy green vegetable), Salad, Papad and Choice of curry.</p>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Veg Dhendo</h4><span class="price">$15</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken (Gravy/Dry)</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Egg</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Fish (Gravy/Dry)</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Goat (Gravy/Dry)</h4><span class="price">$20</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef Sukuti</h4><span class="price">$20</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef Curry</h4><span class="price">$20</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Pork Dry</h4><span class="price">$20</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Pork Gravy</h4><span class="price">$21</span></div></div></div>
-        </div>
-      </div>
-
-      <!-- FRIED RICE -->
-      <div class="menu-category">
-        <h3>Fried Rice</h3>
-        <p class="category-subtitle">Long Grain rice sauteed with Choice of meat mixed with Carrot, Cabbage & bean. <em>(Additional charge of $3 for extra egg)</em></p>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Veg Fried Rice</h4><span class="price">$10</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken Fried Rice</h4><span class="price">$12</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Pork/Beef Fried Rice</h4><span class="price">$13</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef Sukuti Rice</h4><span class="price">$13</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Mixed Rice</h4><span class="price">$15</span></div></div></div>
-        </div>
-      </div>
-
-      <!-- CHOWMEIN -->
-      <div class="menu-category">
-        <h3>Chowmein</h3>
-        <p class="category-subtitle">Nepalese Style fried noodles in mixed vegetables with choice of meat, sprinkled with scallion and cilantro. <em>(Additional charge of $3 for extra egg)</em></p>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Veg Chowmein</h4><span class="price">$10</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken Chowmein</h4><span class="price">$12</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Pork/Beef Chowmein</h4><span class="price">$13</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef Sukuti Chowmein</h4><span class="price">$13</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Mixed Chowmein</h4><span class="price">$15</span></div></div></div>
-        </div>
-      </div>
-
-      <!-- THUKPA -->
-      <div class="menu-category">
-        <h3>Thukpa</h3>
-        <p class="category-subtitle">Popular Tibetan Noodle Soup with mixed vegetables and choice of meat. <em>(Additional charge of $3 for extra egg)</em></p>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Veg Thukpa</h4><span class="price">$10</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken Thukpa</h4><span class="price">$12</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Pork/Beef Thukpa</h4><span class="price">$13</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef Sukuti Thukpa</h4><span class="price">$13</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Mixed Thukpa</h4><span class="price">$15</span></div></div></div>
-        </div>
-      </div>
-
-      <!-- MO:MO (DUMPLINGS) -->
-      <div class="menu-category">
-        <h3>MO:MO (Dumplings)</h3>
-        <p class="category-subtitle">Handmade Small Buns filled with ground meat, Onions, scallion, cilantro, garlic and ginger. Served Steamed (8Pcs). <em>(Additional $2 for Jhol/Fried/Kothey/Chilly)</em></p>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Veg MO:MO</h4><span class="price">$10</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken MO:MO</h4><span class="price">$11</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef MO:MO</h4><span class="price">$12</span></div></div></div>
-        </div>
-      </div>
-
-      <!-- SAMAYBAJI -->
-      <div class="menu-category">
-        <h3>Samaybaji</h3>
-        <p class="category-subtitle">Newari special combined set of various separately prepared foods such as beaten rice, Bhatmas (black soybeans), Choila (Choice), Boiled fried egg, Radish pickle and Aalu Tama.</p>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Veg</h4><span class="price">$15</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef Sukuti</h4><span class="price">$20</span></div></div></div>
-        </div>
-      </div>
-
-      <!-- CHILLY ITEMS -->
-      <div class="menu-category">
-        <h3>Chilly Items</h3>
-        <p class="category-subtitle">Sautéed with garlic, Tomato, Onion Bell Peppers, Green chili, and Cilantro.</p>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chips</h4><span class="price">$12</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Paneer</h4><span class="price">$14</span></div><p>Served with Plain Rice or Tigmo.</p></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken</h4><span class="price">$16</span></div><p>Served with Plain Rice or Tigmo.</p></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef / Pork</h4><span class="price">$17</span></div><p>Served with Plain Rice or Tigmo.</p></div></div>
-        </div>
-      </div>
-
-      <!-- SHABHALEY -->
-      <div class="menu-category">
-        <h3>Shabhaley</h3>
-        <p class="category-subtitle">Deep-fried meat pie filled with a flavorful mixture of seasoned ground beef or chicken, onions, and aromatic spices.</p>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken (4 Pcs)</h4><span class="price">$12</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef (4 Pcs)</h4><span class="price">$13</span></div></div></div>
-        </div>
-      </div>
-
-      <!-- KIDS SPECIAL -->
-      <div class="menu-category">
-        <h3>Kids Special</h3>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>French Fries</h4><span class="price">$6</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken Popcorn</h4><span class="price">$7</span></div></div></div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Kids Thali Set</h4>
-                <span class="price">$8</span>
-              </div>
-              <p>A Traditional Combination Platter Served with Rice, Daal (lentil soup) Rayo Saag (Fresh mustard greens), Seasonal Vegetables, Salad, Papad, Aalu bhujuri and Choice of Curry.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- BEVERAGES -->
-      <div class="menu-category">
-        <h3>Beverages</h3>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Bottled Water</h4><span class="price">$2</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Cold Drinks / Soda</h4><span class="price">$2</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Red Bull / Monster</h4><span class="price">$3</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Masala Tea / Salt</h4><span class="price">$3</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Ginger Lemon Honey</h4><span class="price">$4</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Sweet Lassi</h4><span class="price">$5</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Mango Lassi</h4><span class="price">$5</span></div></div></div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Aama Ko Special Soda</h4>
-                <span class="price">$5</span>
-              </div>
-              <p>Soda blended with Aama's Special Soda Masala and Ice.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SIDE DISH & DESERT -->
-      <div class="menu-category">
-        <h3>Side Dish & Dessert</h3>
-        <div class="menu-grid">
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Plain Rice (12oz)</h4><span class="price">$3</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Plain Rice (32oz)</h4><span class="price">$8</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Daal (12oz)</h4><span class="price">$4</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Daal (32oz)</h4><span class="price">$8</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Aloo Sabji (12oz)</h4><span class="price">$5</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Aloo Sabji (32oz)</h4><span class="price">$12</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Saag (12oz)</h4><span class="price">$4</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Saag (32oz)</h4><span class="price">$8</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Yogurt</h4><span class="price">$3</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Gulab Jamun (2 Pcs)</h4><span class="price">$3</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Any Achar (4 oz)</h4><span class="price">$2</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Any Achar (8 oz)</h4><span class="price">$5</span></div></div></div>
-          <div class="menu-card-item">
-            <div class="menu-item-info">
-              <div class="menu-item-header">
-                <h4>Aloo Taama 12 oz</h4>
-                <span class="price">$8</span>
-              </div>
-              <p>Potato and Bamboo Shoot Broth.</p>
-            </div>
-          </div>
-           <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken Curry Small</h4><span class="price">$9</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Goat Curry Small</h4><span class="price">$9</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Pork Dry Small</h4><span class="price">$9</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Fish Curry Small</h4><span class="price">$9</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef Sukuti Small</h4><span class="price">$9</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Beef Sukuti Large</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Fish Curry Large</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Chicken Curry Large</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Goat Curry Large</h4><span class="price">$18</span></div></div></div>
-          <div class="menu-card-item"><div class="menu-item-info"><div class="menu-item-header"><h4>Pork Dry Large</h4><span class="price">$18</span></div></div></div>
-        </div>
-      </div>
-
-       </section>
-
-    <div class="center-actions">
-      <a
-        class="button dark"
-        href="https://www.grubhub.com/restaurant/aamas-kitchen-7219-roosevelt-ave-jackson-heights/9499520"
-        target="_blank"
-        rel="noopener"
-      >
-        Order on Grubhub
-      </a>
-
-      <a
-        class="button light"
-        href="https://www.ubereats.com/store/aamas-kitchen/mw5BhNurQse6a8sIPrkIKg"
-        target="_blank"
-        rel="noopener"
-      >
-        Order on Uber Eats
-      </a>
-
-      <a
-        class="button light"
-        href="https://www.doordash.com/en-CA/store/aama%E2%80%99s-kitchen-jackson-heights-32369377/49380152/"
-        target="_blank"
-        rel="noopener"
-      >
-        Order on DoorDash
-      </a>
     </div>
-    <section class="section cta">
-      <div>
-        <p class="eyebrow">COME VISIT US</p>
-        <h2>Let us feed you like family.</h2>
-        <p>72-19 Roosevelt Ave · Jackson Heights, NY 11372</p>
-      </div>
-      <div class="hero-actions">
-        <a class="button primary" href="https://www.google.com/maps/search/?api=1&query=72-19+Roosevelt+Ave,+Jackson+Heights,+NY+11372" target="_blank" rel="noopener">Get Directions</a>
-        <a class="button outline" href="https://www.instagram.com/aamaskitchennyc/" target="_blank" rel="noopener">Instagram</a>
-      </div>
-    </section>
 
-    <section id="visit" class="section visit">
-      <div class="visit-card">
-        <p class="eyebrow">VISIT AAMA'S KITCHEN</p>
-        <h2>Jackson Heights, New York</h2>
-        <p>72-19 Roosevelt Ave<br>Jackson Heights, NY 11372</p>
-        <a href="tel:+13478089595">(347) 808-9595</a>
+    <div class="about-content">
+
+      <p class="about-lead">
+        Aama’s Kitchen brings the comforting, authentic flavors of
+        traditional Nepalese home cooking to Jackson Heights, NY.
+        Operating as an extension of the iconic Annapurna Thakali
+        Kitchen, Aama’s Kitchen carries forward a proud legacy of
+        culinary excellence, rooted in rich Himalayan heritage and
+        authentic family recipes.
+      </p>
+
+      <p>
+        Named in honor of "Aama"—the Nepali word for mother—our
+        kitchen is built on the warmth, generosity, and care of
+        home-cooked meals. Situated in the heart of Jackson Heights
+        at 72-19 Roosevelt Avenue, we serve classic Nepalese comfort
+        food made from fresh ingredients, fragrant herbs, and
+        traditional spices. From handcrafted Mo:Mo dumplings and
+        savory snacks to hearty traditional Thali platters, every
+        dish offers an authentic taste of Nepal. Whether you are
+        dining in or picking up a meal on the go, Aama’s Kitchen
+        welcomes you with the genuine hospitality of home.
+      </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+      <article class="feature-card">
+
+        <span class="feature-number">01</span>
+
+        <div class="feature-icon">✦</div>
+
+        <h3>Traditional Flavors</h3>
+
+        <p>
+          Comforting Nepali dishes inspired by home-style cooking
+          and authentic Himalayan recipes.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <span class="feature-number">02</span>
+
+        <div class="feature-icon">✦</div>
+
+        <h3>Vegetarian Options</h3>
+
+        <p>
+          A selection of satisfying vegetarian dishes prepared with
+          fresh ingredients and traditional spices.
+        </p>
+
+      </article>
+
+
+      <article class="feature-card">
+
+        <span class="feature-number">03</span>
+
+        <div class="feature-icon">✦</div>
+
+        <h3>Catering</h3>
+
+        <p>
+          Choose from small, medium and large catering portions
+          for your next gathering or celebration.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     MENU
+====================================================== -->
+
+<section
+  id="menu"
+  class="menu-section"
+>
+
+  <div class="section-container">
+
+    <div class="menu-intro">
+
+      <div class="section-kicker centered">
+        <span></span>
+        Authentic Nepali Cuisine
+        <span></span>
       </div>
-      <div class="visit-card">
-        <p class="eyebrow">ONLINE</p>
-        <h2>Order or connect</h2>
-        <p>Order through our online delivery partner, explore the menu, or follow along on Instagram.</p>
-        <div class="link-stack">
-          <a href="https://www.grubhub.com/restaurant/aamas-kitchen-7219-roosevelt-ave-jackson-heights/9499520" target="_blank" rel="noopener">Order on Grubhub →</a>
-          <a href="https://www.ubereats.com/store/aamas-kitchen/mw5BhNurQse6a8sIPrkIKg" target="_blank" rel="noopener">Order on Uber Eats →</a>
-          <a href="https://www.doordash.com/en-CA/store/aama%E2%80%99s-kitchen-jackson-heights-32369377/49380152/" target="_blank" rel="noopener">Order on Doordash →</a>
-          <a href="https://www.instagram.com/aamaskitchennyc/" target="_blank" rel="noopener">Instagram →</a>
+
+      <h2>Our Full Menu</h2>
+
+      <p>
+        Fresh ingredients, traditional spices, and comforting
+        flavors made fresh daily.
+      </p>
+
+    </div>
+
+
+    <!-- NASTA -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">01</span>
+          <h3>Nasta</h3>
         </div>
       </div>
-    </section>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Boiled Eggs (2 Pcs)</h4>
+          <span class="price">$5</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Scrambled Eggs</h4>
+          <span class="price">$6</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Sunnyside Egg (2 Pcs)</h4>
+          <span class="price">$6</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Sukkha Roti (3 Pcs)</h4>
+          <span class="price">$6</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Aalu Chanaa</h4>
+            <p>
+              Traditional dish of tender potatoes and chanaa
+              simmered in creamy tomato gravy, infused with
+              aromatic herbs and spices.
+            </p>
+          </div>
+          <span class="price">$7</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Roti Tarkari Set</h4>
+            <p>
+              Set with 3 pcs of roti, aloo chana/kerau,
+              2 boiled eggs, and salad.
+            </p>
+          </div>
+          <span class="price">$13</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- AMILO PIRO -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">02</span>
+          <h3>Amilo Piro</h3>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Wai Wai Sadeko</h4>
+            <p>
+              Dried Nepali Noodle marinated with Spices, Onion,
+              Green Chilly, Green peas and Drop of Fresh lemon Juice.
+            </p>
+          </div>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Paani Puri (8 Pcs)</h4>
+            <p>
+              Crispy puris filled with a flavorful mix of potatoes,
+              chickpeas, onions, and spices, served with a side of
+              tangy tamarind water for dipping.
+            </p>
+          </div>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Papri Chaat</h4>
+            <p>
+              Crispy papri topped with tangy tamarind chutney,
+              creamy yogurt, spiced chickpeas, and potatoes,
+              garnished with sev and aromatic herbs.
+            </p>
+          </div>
+          <span class="price">$12</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- SITTAN -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">03</span>
+          <h3>Sittan <small>Appetizer</small></h3>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Kosa (Edamame)</h4>
+            <p>Steamed Fresh Green Soybean (Salted).</p>
+          </div>
+          <span class="price">$8</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Aalu Dum / Jeera</h4>
+            <p>
+              Sautéed Potato Served with Sichuan Pepper and
+              Himalayan Herbs &amp; Spices.
+            </p>
+          </div>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Bhatmas Sadeko</h4>
+            <p>
+              Roasted Soybeans mixed with Spices Red Onion,
+              Green Chilly, Sliced Garlic, Sliced Ginger and
+              drop of Fresh Lemon Juice.
+            </p>
+          </div>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Green Salad</h4>
+            <p>
+              Slices of Fresh carrot, Cucumber Served with
+              chat masala.
+            </p>
+          </div>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Kosa Spicy</h4>
+            <p>
+              Fresh green soybean tossed in spicy chili sauce
+              sauteed with garlic and red dry chili.
+            </p>
+          </div>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Peanuts Sadeko</h4>
+            <p>
+              Roasted Peanuts mixed with Spices, Red onion,
+              Green Chilly, Sliced Garlic, Sliced Ginger and
+              fresh Lemon Juice.
+            </p>
+          </div>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Chicken Sadeko (Served Cold)</h4>
+            <p>
+              Boneless chicken mixed with spices onion, sliced
+              ginger, sliced garlic green chilly.
+            </p>
+          </div>
+          <span class="price">$15</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Chicken Gizzard (Pangra)</h4>
+            <p>
+              Muscular Thick Walled Part of a Chicken Stir fried
+              with Spices.
+            </p>
+          </div>
+          <span class="price">$15</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Goat Bhuttan</h4>
+            <p>
+              Goat Intestine, Liver, Heart, Kidney and Tripe
+              Stir-Fried with Green Chilly, Onion and Himalayan Herbs.
+            </p>
+          </div>
+          <span class="price">$15</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Pork Sadeko</h4>
+            <p>
+              Fresh boneless pork grilled mixed with onion,
+              sliced ginger, sliced garlic, green chilly and spices.
+            </p>
+          </div>
+          <span class="price">$15</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Beef Sukuti</h4>
+            <p>
+              Dried Beef meat sautéed with Onion Garlic,
+              Ginger, Tomato, Green Chilly and Spices.
+            </p>
+          </div>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Beef Sukuti Sadeko</h4>
+            <p>
+              Traditional savory dish of dried beef strips
+              sautéed with aromatic herbs, and hint of lemon.
+            </p>
+          </div>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Fish Fried</h4>
+            <p>
+              Deep-fried Rohu fish marinated with authentic
+              Himalayan spices.
+            </p>
+          </div>
+          <span class="price">$18</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- AAMA'S KHAANAA -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">04</span>
+          <h3>Aama's Khaanaa</h3>
+        </div>
+      </div>
+
+      <p class="category-subtitle">
+        A Traditional Combination Platter Served with Rice,
+        Daal (lentil soup), Rayo Saag (Fresh mustard greens),
+        Seasonal Vegetables, Mula Ko achar (Radish Pickle),
+        Tite Karela (bitter gourds), Chutney (Tomato pickle),
+        Gundruk (fermented leafy green vegetable) Salad, Papad
+        and Choice of Curry.
+      </p>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Veg Thali</h4>
+          <span class="price">$13</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Chicken Thali (Gravy/Dry)</h4>
+          <span class="price">$15</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Egg Thali</h4>
+          <span class="price">$15</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Fish Thali (Gravy/Dry)</h4>
+          <span class="price">$17</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Pork Thali Dry</h4>
+          <span class="price">$17</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Goat Thali (Gravy/Dry)</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef Sukuti Thali</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef Curry Thali</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Pork Gravy Thali</h4>
+          <span class="price">$19</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- DHENDO SET -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">05</span>
+          <h3>Dhendo Set</h3>
+        </div>
+      </div>
+
+      <p class="category-subtitle">
+        Himalayan traditional Platter Served with thick wheat
+        Porridge/mush made by corn meal flour/buckwheat with daal
+        (Lentil Soup), Rayo Saag(Fresh Mustard Greens) Seasonal
+        Vegetables, Mula Ko achar (Radish Pickle), Tite Karela
+        (Bitter Gourds) Chutney (Tomato Pickle), Gundruk
+        (fermented leafy green vegetable), Salad, Papad and
+        Choice of curry.
+      </p>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Veg Dhendo</h4>
+          <span class="price">$15</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Chicken (Gravy/Dry)</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Egg</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Fish (Gravy/Dry)</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Goat (Gravy/Dry)</h4>
+          <span class="price">$20</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef Sukuti</h4>
+          <span class="price">$20</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef Curry</h4>
+          <span class="price">$20</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Pork Dry</h4>
+          <span class="price">$20</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Pork Gravy</h4>
+          <span class="price">$21</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- FRIED RICE -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">06</span>
+          <h3>Fried Rice</h3>
+        </div>
+      </div>
+
+      <p class="category-subtitle">
+        Long Grain rice sauteed with Choice of meat mixed with
+        Carrot, Cabbage &amp; bean.
+        <em>(Additional charge of $3 for extra egg)</em>
+      </p>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Veg Fried Rice</h4>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Chicken Fried Rice</h4>
+          <span class="price">$12</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Pork/Beef Fried Rice</h4>
+          <span class="price">$13</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef Sukuti Rice</h4>
+          <span class="price">$13</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Mixed Rice</h4>
+          <span class="price">$15</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- CHOWMEIN -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">07</span>
+          <h3>Chowmein</h3>
+        </div>
+      </div>
+
+      <p class="category-subtitle">
+        Nepalese Style fried noodles in mixed vegetables with
+        choice of meat, sprinkled with scallion and cilantro.
+        <em>(Additional charge of $3 for extra egg)</em>
+      </p>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Veg Chowmein</h4>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Chicken Chowmein</h4>
+          <span class="price">$12</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Pork/Beef Chowmein</h4>
+          <span class="price">$13</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef Sukuti Chowmein</h4>
+          <span class="price">$13</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Mixed Chowmein</h4>
+          <span class="price">$15</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- THUKPA -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">08</span>
+          <h3>Thukpa</h3>
+        </div>
+      </div>
+
+      <p class="category-subtitle">
+        Popular Tibetan Noodle Soup with mixed vegetables and
+        choice of meat.
+        <em>(Additional charge of $3 for extra egg)</em>
+      </p>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Veg Thukpa</h4>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Chicken Thukpa</h4>
+          <span class="price">$12</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Pork/Beef Thukpa</h4>
+          <span class="price">$13</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef Sukuti Thukpa</h4>
+          <span class="price">$13</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Mixed Thukpa</h4>
+          <span class="price">$15</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- MO:MO -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">09</span>
+          <h3>MO:MO <small>Dumplings</small></h3>
+        </div>
+      </div>
+
+      <p class="category-subtitle">
+        Handmade Small Buns filled with ground meat, Onions,
+        scallion, cilantro, garlic and ginger. Served Steamed
+        (8Pcs).
+        <em>(Additional $2 for Jhol/Fried/Kothey/Chilly)</em>
+      </p>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Veg MO:MO</h4>
+          <span class="price">$10</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Chicken MO:MO</h4>
+          <span class="price">$11</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef MO:MO</h4>
+          <span class="price">$12</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- SAMAYBAJI -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">10</span>
+          <h3>Samaybaji</h3>
+        </div>
+      </div>
+
+      <p class="category-subtitle">
+        Newari special combined set of various separately prepared
+        foods such as beaten rice, Bhatmas (black soybeans),
+        Choila (Choice), Boiled fried egg, Radish pickle and
+        Aalu Tama.
+      </p>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Veg</h4>
+          <span class="price">$15</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Chicken</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef Sukuti</h4>
+          <span class="price">$20</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- CHILLY ITEMS -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">11</span>
+          <h3>Chilly Items</h3>
+        </div>
+      </div>
+
+      <p class="category-subtitle">
+        Sautéed with garlic, Tomato, Onion Bell Peppers,
+        Green chili, and Cilantro.
+      </p>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Chips</h4>
+          <span class="price">$12</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Paneer</h4>
+            <p>Served with Plain Rice or Tigmo.</p>
+          </div>
+          <span class="price">$14</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Chicken</h4>
+            <p>Served with Plain Rice or Tigmo.</p>
+          </div>
+          <span class="price">$16</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Beef / Pork</h4>
+            <p>Served with Plain Rice or Tigmo.</p>
+          </div>
+          <span class="price">$17</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- SHABHALEY -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">12</span>
+          <h3>Shabhaley</h3>
+        </div>
+      </div>
+
+      <p class="category-subtitle">
+        Deep-fried meat pie filled with a flavorful mixture of
+        seasoned ground beef or chicken, onions, and aromatic spices.
+      </p>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Chicken (4 Pcs)</h4>
+          <span class="price">$12</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef (4 Pcs)</h4>
+          <span class="price">$13</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- KIDS -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">13</span>
+          <h3>Kids Special</h3>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>French Fries</h4>
+          <span class="price">$6</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Chicken Popcorn</h4>
+          <span class="price">$7</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Kids Thali Set</h4>
+            <p>
+              A Traditional Combination Platter Served with Rice,
+              Daal (lentil soup) Rayo Saag (Fresh mustard greens),
+              Seasonal Vegetables, Salad, Papad, Aalu bhujuri and
+              Choice of Curry.
+            </p>
+          </div>
+          <span class="price">$8</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- BEVERAGES -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">14</span>
+          <h3>Beverages</h3>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Bottled Water</h4>
+          <span class="price">$2</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Cold Drinks / Soda</h4>
+          <span class="price">$2</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Red Bull / Monster</h4>
+          <span class="price">$3</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Masala Tea / Salt</h4>
+          <span class="price">$3</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Ginger Lemon Honey</h4>
+          <span class="price">$4</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Sweet Lassi</h4>
+          <span class="price">$5</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Mango Lassi</h4>
+          <span class="price">$5</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Aama Ko Special Soda</h4>
+            <p>
+              Soda blended with Aama's Special Soda Masala and Ice.
+            </p>
+          </div>
+          <span class="price">$5</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- SIDES & DESSERT -->
+
+    <div class="menu-category">
+
+      <div class="category-heading">
+        <div>
+          <span class="category-number">15</span>
+          <h3>Side Dish &amp; Dessert</h3>
+        </div>
+      </div>
+
+      <div class="menu-grid">
+
+        <article class="menu-card-item">
+          <h4>Plain Rice (12oz)</h4>
+          <span class="price">$3</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Plain Rice (32oz)</h4>
+          <span class="price">$8</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Daal (12oz)</h4>
+          <span class="price">$4</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Daal (32oz)</h4>
+          <span class="price">$8</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Aloo Sabji (12oz)</h4>
+          <span class="price">$5</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Aloo Sabji (32oz)</h4>
+          <span class="price">$12</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Saag (12oz)</h4>
+          <span class="price">$4</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Saag (32oz)</h4>
+          <span class="price">$8</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Yogurt</h4>
+          <span class="price">$3</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Gulab Jamun (2 Pcs)</h4>
+          <span class="price">$3</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Any Achar (4 oz)</h4>
+          <span class="price">$2</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Any Achar (8 oz)</h4>
+          <span class="price">$5</span>
+        </article>
+
+        <article class="menu-card-item menu-card-wide">
+          <div>
+            <h4>Aloo Taama 12 oz</h4>
+            <p>Potato and Bamboo Shoot Broth.</p>
+          </div>
+          <span class="price">$8</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Chicken Curry Small</h4>
+          <span class="price">$9</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Goat Curry Small</h4>
+          <span class="price">$9</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Pork Dry Small</h4>
+          <span class="price">$9</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Fish Curry Small</h4>
+          <span class="price">$9</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef Sukuti Small</h4>
+          <span class="price">$9</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Beef Sukuti Large</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Fish Curry Large</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Chicken Curry Large</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Goat Curry Large</h4>
+          <span class="price">$18</span>
+        </article>
+
+        <article class="menu-card-item">
+          <h4>Pork Dry Large</h4>
+          <span class="price">$18</span>
+        </article>
+
+      </div>
+
+    </div>
+
+
+    <!-- =================================================
+         ORDER BUTTONS
+    ================================================== -->
+
+    <div class="order-section">
+
+      <div class="order-heading">
+        <span></span>
+        <p>Order your favorites</p>
+        <span></span>
+      </div>
+
+      <div class="order-buttons">
+
+        <a
+          class="button button-dark"
+          href="https://www.grubhub.com/restaurant/aamas-kitchen-7219-roosevelt-ave-jackson-heights/9499520"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Order on Grubhub
+          <span>↗</span>
+        </a>
+
+        <a
+          class="button button-light"
+          href="https://www.ubereats.com/store/aamas-kitchen/mw5BhNurQse6a8sIPrkIKg"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Order on Uber Eats
+          <span>↗</span>
+        </a>
+
+        <a
+          class="button button-light"
+          href="https://www.doordash.com/en-CA/store/aama%E2%80%99s-kitchen-jackson-heights-32369377/49380152/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Order on DoorDash
+          <span>↗</span>
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CATERING
+====================================================== -->
+
+<section
+  id="catering"
+  class="catering-section"
+>
+
+  <div class="section-container">
+
+    <div class="catering-content">
+
+      <div class="section-kicker light">
+        <span></span>
+        Catering
+      </div>
+
+      <h2>
+        Let us bring<br>
+        <em>Aama's Kitchen</em><br>
+        to your gathering.
+      </h2>
+
+      <p>
+        Choose from small, medium and large catering portions
+        for celebrations, family gatherings, office events,
+        and special occasions.
+      </p>
+
+      <a
+        class="button button-primary"
+        href="tel:+13478089595"
+      >
+        Call for Catering
+        <span class="button-arrow">→</span>
+      </a>
+
+    </div>
+
+
+    <div class="catering-side">
+
+      <div class="catering-card">
+        <span class="catering-card-number">01</span>
+        <h3>Family Gatherings</h3>
+        <p>Comforting Nepali food made for sharing.</p>
+      </div>
+
+      <div class="catering-card">
+        <span class="catering-card-number">02</span>
+        <h3>Celebrations</h3>
+        <p>Traditional flavors for your special occasions.</p>
+      </div>
+
+      <div class="catering-card">
+        <span class="catering-card-number">03</span>
+        <h3>Office Events</h3>
+        <p>Easy catering portions for your team and guests.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CTA
+====================================================== -->
+
+<section class="cta-section">
+
+  <div class="section-container cta-inner">
+
+    <div>
+
+      <div class="section-kicker">
+        <span></span>
+        Come Visit Us
+      </div>
+
+      <h2>
+        Let us feed you<br>
+        <em>like family.</em>
+      </h2>
+
+      <p>
+        72-19 Roosevelt Ave · Jackson Heights, NY 11372
+      </p>
+
+    </div>
+
+    <div class="cta-actions">
+
+      <a
+        class="button button-primary"
+        href="https://www.google.com/maps/search/?api=1&query=72-19+Roosevelt+Ave,+Jackson+Heights,+NY+11372"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Get Directions
+        <span class="button-arrow">→</span>
+      </a>
+
+      <a
+        class="button button-outline"
+        href="https://www.instagram.com/aamaskitchennyc/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Instagram
+      </a>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     VISIT / CONTACT
+====================================================== -->
+
+<section
+  id="visit"
+  class="section visit-section"
+>
+
+  <div class="section-container">
+
+    <div class="visit-grid">
+
+      <article class="visit-card">
+
+        <div class="section-kicker">
+          <span></span>
+          Visit Aama's Kitchen
+        </div>
+
+        <h2>Jackson Heights,<br>New York</h2>
+
+        <p>
+          72-19 Roosevelt Ave<br>
+          Jackson Heights, NY 11372
+        </p>
+
+        <a
+          class="phone-link"
+          href="tel:+13478089595"
+        >
+          (347) 808-9595
+        </a>
+
+        <a
+          class="directions-link"
+          href="https://www.google.com/maps/search/?api=1&query=72-19+Roosevelt+Ave,+Jackson+Heights,+NY+11372"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Get directions →
+        </a>
+
+      </article>
+
+
+      <article class="visit-card">
+
+        <div class="section-kicker">
+          <span></span>
+          Online
+        </div>
+
+        <h2>Order or<br>connect.</h2>
+
+        <p>
+          Order through our online delivery partners,
+          explore the menu, or follow along on Instagram.
+        </p>
+
+        <div class="link-stack">
+
+          <a
+            href="https://www.grubhub.com/restaurant/aamas-kitchen-7219-roosevelt-ave-jackson-heights/9499520"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Order on Grubhub
+            <span>↗</span>
+          </a>
+
+          <a
+            href="https://www.ubereats.com/store/aamas-kitchen/mw5BhNurQse6a8sIPrkIKg"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Order on Uber Eats
+            <span>↗</span>
+          </a>
+
+          <a
+            href="https://www.doordash.com/en-CA/store/aama%E2%80%99s-kitchen-jackson-heights-32369377/49380152/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Order on DoorDash
+            <span>↗</span>
+          </a>
+
+          <a
+            href="https://www.instagram.com/aamaskitchennyc/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+            <span>↗</span>
+          </a>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+```
+
   </main>
 
-  <footer>
-    <img src="logo.png" alt="Aama's Kitchen" class="footer-logo">
-    <p>© <span id="year"></span> Aama's Kitchen · Nepali Cuisine · Jackson Heights, NY</p>
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="site-footer">
+
+```
+<div class="footer-inner">
+
+  <div class="footer-brand">
+
+    <img
+      src="logo.png"
+      alt="Aama's Kitchen"
+    >
+
+    <p>
+      Authentic Nepali Cuisine<br>
+      Jackson Heights, New York
+    </p>
+
+  </div>
+
+
+  <div class="footer-contact">
+
+    <a href="tel:+13478089595">
+      (347) 808-9595
+    </a>
+
+    <span>·</span>
+
+    <a
+      href="https://www.instagram.com/aamaskitchennyc/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Instagram
+    </a>
+
+  </div>
+
+
+  <p class="copyright">
+    © <span id="year"></span> Aama's Kitchen
+  </p>
+
+</div>
+```
+
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>
