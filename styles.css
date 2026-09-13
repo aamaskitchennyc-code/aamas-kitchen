@@ -3054,3 +3054,259 @@ transform:
   }
 
 }
+/* =========================================================
+   MOBILE FIXES
+   Does NOT change desktop layout
+========================================================= */
+
+@media (max-width: 850px) {
+
+  /* Prevent anything from creating a white strip
+     or horizontal scrolling */
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+
+  /* =====================================================
+     MOBILE HEADER
+  ====================================================== */
+
+  .site-header {
+    width: 100%;
+  }
+
+  .header-inner {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .brand {
+    min-width: 0;
+  }
+
+  .brand img {
+    max-width: 100%;
+    height: auto;
+  }
+
+
+  /* Make sure hamburger is visible */
+
+  .menu-toggle {
+    display: flex !important;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+
+    width: 44px;
+    height: 44px;
+
+    flex: 0 0 44px;
+
+    padding: 0;
+    margin: 0;
+
+    background: transparent;
+    border: none;
+
+    cursor: pointer;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+  }
+
+
+  /* =====================================================
+     MOBILE NAVIGATION
+  ====================================================== */
+
+  .nav {
+    display: none;
+  }
+
+  .nav.nav-open {
+    display: flex;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    width: 100%;
+
+    flex-direction: column;
+    align-items: stretch;
+
+    padding: 12px 20px 20px;
+
+    background: var(--white);
+
+    box-shadow: 0 12px 30px rgba(33, 27, 23, 0.12);
+
+    z-index: 1000;
+  }
+
+  .nav.nav-open a {
+    display: block;
+    width: 100%;
+    padding: 14px 4px;
+  }
+
+
+  /* =====================================================
+     HERO
+  ====================================================== */
+
+  .hero,
+  .hero-inner,
+  .hero-content,
+  .hero-image-wrap {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .hero-image {
+    max-width: 100%;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+
+  /* =====================================================
+     ALL MAIN SECTIONS
+  ====================================================== */
+
+  main,
+  section,
+  .section-container {
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .section-container {
+    width: 100%;
+  }
+
+
+  /* =====================================================
+     FOOD GALLERY
+  ====================================================== */
+
+  .food-gallery-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .food-gallery-card {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .food-gallery-image {
+    max-width: 100%;
+  }
+
+  .food-gallery-image img {
+    max-width: 100%;
+  }
+
+
+  /* =====================================================
+     MENU
+  ====================================================== */
+
+  .menu-section,
+  .menu-category,
+  .menu-grid,
+  .menu-card-item {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .menu-grid {
+    width: 100%;
+  }
+
+  .menu-card-item {
+    overflow-wrap: break-word;
+  }
+
+
+  /* =====================================================
+     CATERING / CTA / VISIT
+  ====================================================== */
+
+  .catering-section,
+  .cta-section,
+  .visit-section {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .catering-content,
+  .catering-side,
+  .cta-inner,
+  .visit-grid,
+  .visit-card {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+
+  /* Prevent long URLs/text from forcing
+     the page wider than the phone */
+
+  a,
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  span {
+    overflow-wrap: break-word;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .header-inner {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .menu-toggle {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+}
