@@ -1,231 +1,438 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+Yes — that is a layout issue, not something you should try to fix by moving the image manually.
+
+The reason the thali.jpg appears below the description is that the hero is collapsing into a single column at your current screen width. We want the desktop hero to stay side-by-side, while on phones it should intentionally become:
+
+text → buttons → photo
+
+So the correct behavior should be:
+
+Desktop
+┌─────────────────────────────────────────────────────────┐
+│                                                         │
+│  NEPALI CUISINE · JACKSON HEIGHTS      ┌─────────────┐ │
+│                                         │             │ │
+│  A Taste of Home.                      │   THALI     │ │
+│                                         │   PHOTO     │ │
+│  Welcome to Aama's Kitchen...           │             │ │
+│                                         │             │ │
+│  [ Explore Menu ] [ Call Us ]           └─────────────┘ │
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+Phone
+┌─────────────────────────┐
+│                         │
+│ A Taste of Home.        │
+│                         │
+│ Welcome to Aama's...    │
+│                         │
+│ [ Explore Menu ]        │
+│ [ Call Us ]              │
+│                         │
+│ ┌─────────────────────┐ │
+│ │                     │ │
+│ │     THALI PHOTO     │ │
+│ │                     │ │
+│ └─────────────────────┘ │
+└─────────────────────────┘
+
+That is actually the correct responsive behavior.
+
+If you're viewing the website on a desktop
+
+Then something is wrong, because the image should be beside the description.
+
+Make sure your hero HTML has exactly this structure:
+
+<section id="home" class="hero">
+
+  <div class="hero-content">
+
+    <p class="eyebrow">
+      NEPALI CUISINE · JACKSON HEIGHTS
+    </p>
+
+    <h1>A Taste of Home.</h1>
+
+    <p class="hero-copy">
+      Welcome to Aama’s Kitchen—Jackson Heights’ spot for genuine
+      Himalayan comfort food. We prepare traditional home-cooked
+      recipes fresh daily using authentic spices and quality
+      ingredients. Join us for a sit-down meal or grab your favorite
+      dishes on the go.
+    </p>
+
+    <div class="hero-actions">
+
+      <a class="button primary" href="#menu">
+        Explore the Menu
+      </a>
+
+      <a class="button outline" href="tel:+13478089595">
+        Call (347) 808-9595
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <div class="hero-image">
+
+    <img
+      src="thali.jpg"
+      alt="Authentic Nepali Thali Set"
+    >
+
+  </div>
+
+</section>
+
+And the important CSS is:
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(380px, 0.95fr);
+  align-items: center;
+  gap: 70px;
+}
+
+Then the mobile breakpoint intentionally changes it:
+
+@media (max-width: 850px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+  }
+
+}
+One important thing
+
+If you're saying the photo is appearing below the description even on your desktop computer, then I'd like to see exactly what you're seeing, because that means there is probably another HTML/CSS conflict in the actual GitHub version.
+
+You can upload a screenshot of the current website, and I'll pinpoint the alignment problem visually.
+
+Upload a photo
+
+If you upload that screenshot, don't change anything else first. I'll tell you exactly what is causing the photo to drop down and what to change.
+
+Ad
+i also dont want the border
+
+Absolutely. If you mean the border around the thali photo, we can remove it completely.
+
+Also, I recommend removing the border from the hero image container, not just the image itself, so there is no visible frame, outline, or box.
+
+Replace your hero-image CSS with:
+
+.hero-image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+.hero-image img {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: 500px;
+  object-fit: cover;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+If you also don't want rounded corners
+
+The important line is:
+
+border-radius: 0;
+
+That will give you a clean full photo with no border and no rounded frame.
+
+And make sure your HTML has only these two hero children
+<section id="home" class="hero">
+
+  <div class="hero-content">
+    ...
+  </div>
+
+  <div class="hero-image">
+    <img src="thali.jpg" alt="Authentic Nepali Thali Set">
+  </div>
+
+</section>
+
+Remove this if it is still in your HTML:
+
+<div class="hero-overlay"></div>
+
+That extra element can interfere with the two-column layout we are trying to create.
+
+If by border you mean the border around the entire website/menu cards/header rather than the thali photo, tell me which one and I'll remove those too.
+
+Ad
+can you please provide me the whole css file; because i am not sure which code is to be changed or replaced?
+
+Yes — and that is actually the best option for you. You won't have to figure out which pieces to replace.
+
+Below is a complete styles.css file designed around the Aama’s Kitchen layout we've been working on. It also removes the border/frame around the thali photo and keeps the photo beside the description on desktop.
+
+Important before you paste it
+
+In your index.html, make sure the hero section has only these two direct elements:
+
+<section id="home" class="hero">
+
+  <div class="hero-content">
+    ...
+  </div>
+
+  <div class="hero-image">
+    <img src="thali.jpg" alt="Authentic Nepali Thali Set">
+  </div>
+
+</section>
+
+Delete this line if it is still there:
+
+<div class="hero-overlay"></div>
+
+That is important because it can interfere with the two-column layout.
+
+Complete styles.css
+
+Replace everything inside your current styles.css with this:
 
 /* =========================================================
    AAMA'S KITCHEN
-   CLEAN / REFINED RESTAURANT DESIGN
-========================================================= */
+   Main Website Styles
+   ========================================================= */
 
-:root {
-  --bg: #fbf8f2;
-  --surface: #ffffff;
-  --surface-warm: #f4eee3;
-
-  --text: #241c18;
-  --muted: #746a60;
-
-  --red: #8f2d28;
-  --red-dark: #70221e;
-
-  --gold: #b78a4a;
-  --gold-light: #d9bd86;
-
-  --dark: #211c19;
-
-  --border: #e5ddd1;
-
-  --container: 1180px;
-
-  --radius: 14px;
-
-  --shadow:
-    0 10px 35px rgba(35, 27, 21, 0.08);
-
-  --shadow-hover:
-    0 18px 45px rgba(35, 27, 21, 0.13);
-}
-
-/* =========================================================
+/* -------------------------
    RESET
-========================================================= */
+------------------------- */
 
-*,
-*::before,
-*::after {
+* {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
 }
 
 body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif;
 
-  font-family: "DM Sans", sans-serif;
-
-  font-size: 16px;
-  line-height: 1.65;
+  background: #fffaf5;
+  color: #2b211d;
+  line-height: 1.6;
 }
 
 img {
-  display: block;
   max-width: 100%;
-}
-
-button,
-a {
-  font: inherit;
 }
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 button {
-  cursor: pointer;
+  font: inherit;
 }
 
-/* =========================================================
-   GLOBAL CONTAINER
-========================================================= */
+:root {
+  --container: 1180px;
 
-.section {
+  --brown-dark: #2b211d;
+  --brown: #6b3f2d;
+  --brown-light: #8b5a42;
+
+  --cream: #fffaf5;
+  --cream-dark: #f5eadf;
+
+  --gold: #c99645;
+  --gold-light: #e2bd7a;
+
+  --text: #2b211d;
+  --muted: #766962;
+
+  --white: #ffffff;
+
+  --shadow-soft: 0 12px 35px rgba(43, 33, 29, 0.08);
+  --shadow-medium: 0 20px 50px rgba(43, 33, 29, 0.12);
+}
+
+
+/* =========================================================
+   GENERAL LAYOUT
+   ========================================================= */
+
+.container {
   width: min(var(--container), calc(100% - 48px));
   margin: 0 auto;
+}
+
+.section {
   padding: 100px 0;
 }
 
+
 /* =========================================================
    HEADER
-========================================================= */
+   ========================================================= */
 
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
 
-  height: 82px;
+  width: 100%;
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
-  background: rgba(251, 248, 242, 0.94);
+  padding: 14px max(24px, calc((100vw - var(--container)) / 2));
 
-  border-bottom: 1px solid rgba(229, 221, 209, 0.8);
+  background: rgba(255, 250, 245, 0.96);
+
+  border: none;
+  box-shadow: 0 2px 12px rgba(43, 33, 29, 0.05);
 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 
   transition:
-    height 0.3s ease,
+    padding 0.3s ease,
     box-shadow 0.3s ease,
     background 0.3s ease;
 }
 
 .site-header.scrolled {
-  height: 68px;
+  padding-top: 9px;
+  padding-bottom: 9px;
 
-  background: rgba(251, 248, 242, 0.98);
+  background: rgba(255, 250, 245, 0.98);
 
-  box-shadow:
-    0 5px 25px rgba(30, 22, 18, 0.08);
+  box-shadow: 0 6px 24px rgba(43, 33, 29, 0.10);
 }
 
-.site-header > * {
-  flex-shrink: 0;
-}
+
+/* -------------------------
+   LOGO
+------------------------- */
 
 .brand {
   display: flex;
   align-items: center;
 
-  margin-left: max(24px, calc((100vw - var(--container)) / 2));
+  flex-shrink: 0;
 }
 
 .brand img {
+  display: block;
+
   width: auto;
-  height: 52px;
+  height: 58px;
 
   object-fit: contain;
 
-  transition: height 0.3s ease;
+  border: none;
+  outline: none;
+  box-shadow: none;
+
+  transition: transform 0.3s ease;
 }
 
-.site-header.scrolled .brand img {
-  height: 43px;
+.brand:hover img {
+  transform: scale(1.03);
 }
+
+
+/* -------------------------
+   NAVIGATION
+------------------------- */
 
 .nav {
   display: flex;
   align-items: center;
-
-  gap: 30px;
-
-  margin-left: auto;
-  margin-right: max(24px, calc((100vw - var(--container)) / 2));
-
-  font-size: 14px;
-  font-weight: 600;
+  gap: 34px;
 }
 
 .nav a {
   position: relative;
 
-  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 600;
 
-  color: var(--text);
+  color: var(--brown-dark);
 
   padding: 8px 0;
 
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
 }
 
 .nav a::after {
   content: "";
 
   position: absolute;
-
   left: 0;
   bottom: 1px;
 
   width: 0;
   height: 2px;
 
-  background: var(--red);
+  background: var(--gold);
 
   transition: width 0.25s ease;
 }
 
 .nav a:hover {
-  color: var(--red);
+  color: var(--brown);
 }
 
 .nav a:hover::after {
   width: 100%;
 }
 
-/* =========================================================
+
+/* -------------------------
    MOBILE MENU BUTTON
-========================================================= */
+------------------------- */
 
 .menu-toggle {
   display: none;
 
-  width: 44px;
-  height: 44px;
+  border: none;
+  background: transparent;
 
-  margin-left: auto;
-  margin-right: 20px;
+  color: var(--brown-dark);
 
-  border: 1px solid var(--border);
-  border-radius: 10px;
+  font-size: 1.8rem;
+  line-height: 1;
 
-  background: var(--surface);
-
-  color: var(--text);
-
-  font-size: 22px;
-
-  align-items: center;
-  justify-content: center;
+  cursor: pointer;
 }
+
 
 /* =========================================================
    HERO
-========================================================= */
+   ========================================================= */
 
 .hero {
   position: relative;
@@ -233,6 +440,12 @@ button {
   min-height: 680px;
 
   display: grid;
+
+  /*
+    TWO COLUMNS:
+    LEFT  = text
+    RIGHT = thali image
+  */
 
   grid-template-columns:
     minmax(0, 1.05fr)
@@ -256,183 +469,88 @@ button {
       #542d25 100%
     );
 
-  color: white;
+  color: var(--white);
 }
 
-/* subtle decorative glow */
 
-.hero::before {
-  content: "";
-
-  position: absolute;
-
-  width: 500px;
-  height: 500px;
-
-  right: -180px;
-  top: -180px;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(183, 138, 74, 0.25),
-      transparent 68%
-    );
-
-  pointer-events: none;
-}
+/* -------------------------
+   HERO CONTENT
+------------------------- */
 
 .hero-content {
   position: relative;
   z-index: 2;
 
-  max-width: 620px;
-
-  animation: heroEnter 0.8s ease both;
-}
-
-@keyframes heroEnter {
-  from {
-    opacity: 0;
-    transform: translateY(25px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  max-width: 650px;
 }
 
 .eyebrow {
-  margin: 0 0 14px;
+  margin-bottom: 18px;
 
-  color: var(--gold-light);
-
-  font-size: 12px;
+  font-size: 0.78rem;
   font-weight: 700;
 
   letter-spacing: 0.18em;
 
-  text-transform: uppercase;
+  color: var(--gold-light);
 }
 
 .hero h1 {
-  margin: 0 0 24px;
+  margin-bottom: 22px;
 
-  font-family: "Playfair Display", serif;
+  font-family: Georgia, "Times New Roman", serif;
 
-  font-size: clamp(52px, 6vw, 86px);
+  font-size: clamp(3.2rem, 6vw, 5.5rem);
 
   line-height: 0.98;
+  font-weight: 700;
 
-  font-weight: 600;
-
-  letter-spacing: -0.03em;
+  letter-spacing: -0.035em;
 }
 
 .hero-copy {
-  max-width: 590px;
+  max-width: 620px;
 
-  margin: 0;
+  margin-bottom: 32px;
 
-  color: rgba(255, 255, 255, 0.82);
+  font-size: 1.08rem;
+  line-height: 1.85;
 
-  font-size: 18px;
-
-  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.84);
 }
+
+
+/* -------------------------
+   HERO BUTTONS
+------------------------- */
 
 .hero-actions {
   display: flex;
-
+  align-items: center;
   flex-wrap: wrap;
 
-  gap: 12px;
-
-  margin-top: 32px;
+  gap: 14px;
 }
-
-/* =========================================================
-   HERO IMAGE
-========================================================= */
-
-.hero-image {
-  position: relative;
-  z-index: 2;
-
-  width: 100%;
-
-  animation: heroImageEnter 1s 0.15s ease both;
-}
-
-@keyframes heroImageEnter {
-  from {
-    opacity: 0;
-    transform: translateX(25px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.hero-image img {
-  width: 100%;
-  height: 500px;
-
-  object-fit: cover;
-
-  border-radius: 22px;
-
-  border: 6px solid rgba(255, 255, 255, 0.08);
-
-  box-shadow:
-    0 30px 60px rgba(0, 0, 0, 0.35);
-
-  animation: gentleFloat 7s ease-in-out infinite;
-}
-
-@keyframes gentleFloat {
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-7px);
-  }
-}
-
-/* =========================================================
-   BUTTONS
-========================================================= */
 
 .button {
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
-  min-height: 48px;
+  min-height: 50px;
 
-  padding: 0 22px;
+  padding: 0 24px;
 
-  border-radius: 8px;
+  border-radius: 999px;
 
-  text-decoration: none;
-
-  font-size: 14px;
+  font-size: 0.92rem;
   font-weight: 700;
 
-  border: 1px solid transparent;
-
   transition:
-    transform 0.2s ease,
-    background 0.2s ease,
-    color 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .button:hover {
@@ -440,505 +558,472 @@ button {
 }
 
 .button.primary {
-  background: var(--red);
-  color: white;
+  background: var(--gold);
 
-  box-shadow:
-    0 8px 20px rgba(143, 45, 40, 0.25);
+  color: #241b16;
+
+  box-shadow: 0 10px 25px rgba(201, 150, 69, 0.25);
 }
 
 .button.primary:hover {
-  background: var(--red-dark);
+  background: var(--gold-light);
 }
 
 .button.outline {
-  border-color: rgba(255, 255, 255, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.55);
 
-  color: white;
+  background: transparent;
 
-  background: rgba(255, 255, 255, 0.05);
+  color: var(--white);
 }
 
 .button.outline:hover {
-  background: white;
-  color: var(--text);
+  border-color: var(--white);
+
+  background: var(--white);
+
+  color: var(--brown-dark);
 }
 
-.button.dark {
-  background: var(--dark);
-  color: white;
+
+/* =========================================================
+   HERO IMAGE
+   ========================================================= */
+
+.hero-image {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  box-shadow: none;
 }
 
-.button.light {
-  border-color: var(--border);
-  background: white;
-  color: var(--text);
+
+/*
+  IMPORTANT:
+  No border.
+  No outline.
+  No shadow.
+  No rounded frame.
+*/
+
+.hero-image img {
+  display: block;
+
+  width: 100%;
+  max-width: 520px;
+
+  height: 500px;
+
+  object-fit: cover;
+
+  border: none;
+  outline: none;
+
+  border-radius: 0;
+
+  box-shadow: none;
+
+  transition:
+    transform 0.6s ease;
 }
 
-.button.light:hover {
-  border-color: var(--gold);
+.hero-image:hover img {
+  transform: scale(1.015);
 }
+
 
 /* =========================================================
    SECTION HEADINGS
-========================================================= */
+   ========================================================= */
 
 .section-heading {
-  max-width: 780px;
+  max-width: 760px;
+
+  margin: 0 auto 55px;
+
+  text-align: center;
 }
 
-.section-heading.centered {
-  text-align: center;
-
-  margin-left: auto;
-  margin-right: auto;
+.section-heading .eyebrow {
+  color: var(--brown-light);
 }
 
 .section-heading h2 {
-  margin: 0 0 20px;
+  margin-bottom: 16px;
 
-  font-family: "Playfair Display", serif;
+  font-family: Georgia, "Times New Roman", serif;
 
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
 
   line-height: 1.05;
 
-  letter-spacing: -0.025em;
+  color: var(--brown-dark);
 }
 
-.section-heading > p:not(.eyebrow) {
+.section-heading p {
   color: var(--muted);
 
-  font-size: 17px;
+  font-size: 1rem;
 }
+
 
 /* =========================================================
    ABOUT
-========================================================= */
+   ========================================================= */
 
-.intro {
-  background: var(--bg);
+#about {
+  background: var(--cream);
 }
 
 .lead {
-  max-width: 940px;
+  max-width: 780px;
 
-  margin: 35px 0 0;
+  margin: 0 auto;
 
-  color: #514940;
+  text-align: center;
 
-  font-size: 18px;
+  font-size: 1.1rem;
+  line-height: 1.9;
 
-  line-height: 1.85;
+  color: var(--muted);
 }
+
 
 /* =========================================================
    FEATURE CARDS
-========================================================= */
+   ========================================================= */
 
 .feature-grid {
+  width: min(var(--container), calc(100% - 48px));
+
+  margin: 55px auto 0;
+
   display: grid;
 
   grid-template-columns: repeat(3, 1fr);
 
-  gap: 22px;
-
-  margin-top: 65px;
+  gap: 24px;
 }
 
 .feature-grid article {
-  padding: 28px;
+  padding: 34px;
 
-  background: var(--surface);
+  background: var(--white);
 
-  border: 1px solid var(--border);
+  border: none;
 
-  border-radius: var(--radius);
+  border-radius: 18px;
 
-  box-shadow: 0 5px 20px rgba(30, 22, 18, 0.035);
+  box-shadow: var(--shadow-soft);
 
   transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .feature-grid article:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 
-  box-shadow: var(--shadow);
-}
-
-.feature-grid span {
-  display: block;
-
-  margin-bottom: 15px;
-
-  color: var(--gold);
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  letter-spacing: 0.12em;
+  box-shadow: var(--shadow-medium);
 }
 
 .feature-grid h3 {
-  margin: 0 0 8px;
+  margin-bottom: 10px;
 
-  font-family: "Playfair Display", serif;
+  font-family: Georgia, "Times New Roman", serif;
 
-  font-size: 25px;
+  font-size: 1.45rem;
+
+  color: var(--brown-dark);
 }
 
 .feature-grid p {
-  margin: 0;
-
   color: var(--muted);
+
+  font-size: 0.95rem;
 }
+
 
 /* =========================================================
-   MENU SECTION
-========================================================= */
+   MENU
+   ========================================================= */
+
+#menu {
+  background: #f7eee6;
+}
 
 .menu-section {
-  width: 100%;
-  max-width: none;
-
-  background: var(--surface-warm);
-
-  padding-top: 105px;
-  padding-bottom: 105px;
-}
-
-/*
-   IMPORTANT:
-   Every menu category uses the same width.
-*/
-
-.menu-category {
   width: min(var(--container), calc(100% - 48px));
 
-  margin: 0 auto 65px;
+  margin: 0 auto;
 }
 
-.menu-category:last-of-type {
+
+/* -------------------------
+   MENU CATEGORY
+------------------------- */
+
+.menu-category {
+  margin-bottom: 70px;
+}
+
+.menu-category:last-child {
   margin-bottom: 0;
 }
 
-.menu-category h3 {
-  display: flex;
-  align-items: center;
-
-  gap: 16px;
-
-  margin: 0 0 15px;
-
-  font-family: "Playfair Display", serif;
-
-  font-size: 32px;
-
-  line-height: 1.2;
+.menu-category-header {
+  margin-bottom: 28px;
 }
 
-.menu-category h3::after {
-  content: "";
+.menu-category-header h3 {
+  margin-bottom: 8px;
 
-  flex: 1;
+  font-family: Georgia, "Times New Roman", serif;
 
-  height: 1px;
+  font-size: clamp(1.9rem, 3vw, 2.7rem);
 
-  background: var(--gold-light);
+  color: var(--brown-dark);
 }
 
-.category-subtitle {
-  max-width: 850px;
-
-  margin: 0 0 24px;
+.menu-category-header p {
+  max-width: 800px;
 
   color: var(--muted);
 
-  font-size: 14px;
-
-  line-height: 1.7;
+  font-size: 0.95rem;
 }
 
-/* =========================================================
+
+/* -------------------------
    MENU GRID
-========================================================= */
+------------------------- */
 
 .menu-grid {
   display: grid;
 
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap: 14px;
+  gap: 14px 22px;
 }
 
-/* =========================================================
-   MENU CARD
-========================================================= */
+
+/* -------------------------
+   MENU ITEM
+------------------------- */
 
 .menu-card-item {
-  min-width: 0;
+  position: relative;
 
-  background: var(--surface);
+  padding: 20px 22px;
 
-  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.72);
 
-  border-radius: 12px;
+  border: none;
+
+  border-radius: 14px;
 
   transition:
-    transform 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .menu-card-item:hover {
   transform: translateY(-3px);
 
-  border-color: var(--gold-light);
+  background: var(--white);
 
-  box-shadow: var(--shadow);
+  box-shadow: 0 10px 28px rgba(43, 33, 29, 0.08);
 }
 
-.menu-item-info {
-  padding: 20px 22px;
-}
-
-.menu-item-header {
+.menu-card-top {
   display: flex;
 
-  align-items: flex-start;
-
+  align-items: baseline;
   justify-content: space-between;
 
-  gap: 18px;
+  gap: 20px;
 }
 
-.menu-item-header h4 {
-  min-width: 0;
-
-  margin: 0;
-
-  font-size: 16px;
-
-  line-height: 1.35;
-
-  font-weight: 700;
-}
-
-.price {
-  flex: 0 0 auto;
-
-  color: var(--red);
-
-  font-size: 15px;
-
+.menu-card-item h4 {
+  font-size: 1rem;
   font-weight: 700;
 
-  white-space: nowrap;
+  color: var(--brown-dark);
 }
 
-.menu-item-info p {
-  margin: 9px 0 0;
+.menu-card-item .price {
+  flex-shrink: 0;
+
+  font-weight: 800;
+
+  color: var(--brown);
+}
+
+.menu-card-item p {
+  margin-top: 7px;
 
   color: var(--muted);
 
-  font-size: 13px;
+  font-size: 0.88rem;
 
   line-height: 1.65;
 }
 
+
 /* =========================================================
-   ORDER BUTTONS
-========================================================= */
+   CENTER ACTIONS
+   ========================================================= */
 
 .center-actions {
-  width: min(var(--container), calc(100% - 48px));
-
-  margin: 45px auto 0;
-
   display: flex;
 
-  justify-content: center;
-
   align-items: center;
+  justify-content: center;
 
   flex-wrap: wrap;
 
-  gap: 12px;
+  gap: 14px;
+
+  margin-top: 45px;
 }
+
 
 /* =========================================================
-   CTA
-========================================================= */
+   VISIT SECTION
+   ========================================================= */
 
-.cta {
-  width: 100%;
-  max-width: none;
-
-  margin: 0;
-
-  padding:
-    90px
-    max(24px, calc((100vw - var(--container)) / 2));
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: space-between;
-
-  gap: 40px;
-
-  background: var(--dark);
-
-  color: white;
+#visit {
+  background: var(--cream);
 }
 
-.cta > div:first-child {
-  max-width: 650px;
-}
+.visit-grid {
+  width: min(var(--container), calc(100% - 48px));
 
-.cta h2 {
-  margin: 0 0 10px;
+  margin: 0 auto;
 
-  font-family: "Playfair Display", serif;
-
-  font-size: clamp(38px, 5vw, 58px);
-
-  line-height: 1.05;
-}
-
-.cta p:not(.eyebrow) {
-  margin: 0;
-
-  color: rgba(255, 255, 255, 0.7);
-}
-
-/* =========================================================
-   VISIT
-========================================================= */
-
-.visit {
   display: grid;
 
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(2, 1fr);
 
-  gap: 22px;
+  gap: 24px;
 }
 
 .visit-card {
-  min-width: 0;
+  padding: 38px;
 
-  padding: 40px;
+  background: var(--white);
 
-  background: var(--surface);
+  border: none;
 
-  border: 1px solid var(--border);
+  border-radius: 18px;
 
-  border-radius: var(--radius);
-
-  box-shadow: 0 5px 25px rgba(30, 22, 18, 0.035);
+  box-shadow: var(--shadow-soft);
 }
 
-.visit-card h2 {
-  margin: 5px 0 15px;
+.visit-card h3 {
+  margin-bottom: 12px;
 
-  font-family: "Playfair Display", serif;
+  font-family: Georgia, "Times New Roman", serif;
 
-  font-size: 36px;
+  font-size: 1.7rem;
 
-  line-height: 1.1;
+  color: var(--brown-dark);
 }
 
 .visit-card p {
   color: var(--muted);
 }
 
-.visit-card > a {
-  color: var(--red);
+.visit-card a {
+  color: var(--brown);
 
   font-weight: 700;
-
-  text-decoration: none;
 }
 
-.link-stack {
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 10px;
-
-  margin-top: 22px;
+.visit-card a:hover {
+  color: var(--gold);
 }
 
-.link-stack a {
-  padding: 11px 0;
-
-  border-bottom: 1px solid var(--border);
-
-  color: var(--text);
-
-  font-weight: 600;
-
-  text-decoration: none;
-
-  transition:
-    color 0.2s ease,
-    padding-left 0.2s ease;
-}
-
-.link-stack a:hover {
-  color: var(--red);
-
-  padding-left: 5px;
-}
 
 /* =========================================================
-   FOOTER
-========================================================= */
+   CATERING
+   ========================================================= */
 
-footer {
-  padding: 55px 24px;
+#catering {
+  background: #f7eee6;
+}
 
-  background: #171311;
+.catering-content {
+  width: min(850px, calc(100% - 48px));
 
-  color: rgba(255, 255, 255, 0.65);
+  margin: 0 auto;
 
   text-align: center;
 }
 
-.footer-logo {
-  width: auto;
-  height: 45px;
+.catering-content p {
+  color: var(--muted);
 
-  margin: 0 auto 16px;
+  font-size: 1.05rem;
 
-  filter: brightness(0) invert(1);
-
-  opacity: 0.9;
+  line-height: 1.8;
 }
 
-footer p {
-  margin: 0;
 
-  font-size: 13px;
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  padding: 45px 24px;
+
+  background: var(--brown-dark);
+
+  color: rgba(255, 255, 255, 0.75);
+
+  text-align: center;
 }
+
+.site-footer a {
+  color: var(--gold-light);
+
+  transition: color 0.2s ease;
+}
+
+.site-footer a:hover {
+  color: var(--white);
+}
+
+.footer-social {
+  margin-top: 10px;
+}
+
 
 /* =========================================================
    SCROLL REVEAL
-========================================================= */
+   ========================================================= */
 
 .pre-reveal {
   opacity: 0;
 
-  transform: translateY(20px);
+  transform: translateY(22px);
 
   transition:
-    opacity 0.65s ease,
-    transform 0.65s ease;
+    opacity 0.7s ease,
+    transform 0.7s ease;
 }
 
 .pre-reveal.is-visible {
@@ -947,23 +1032,42 @@ footer p {
   transform: translateY(0);
 }
 
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+
 /* =========================================================
    TABLET
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 1000px) {
 
   .hero {
-    grid-template-columns: 1fr 0.9fr;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(300px, 0.85fr);
 
     gap: 40px;
 
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  .hero h1 {
-    font-size: 62px;
+    padding:
+      65px
+      40px;
   }
 
   .hero-image img {
@@ -971,232 +1075,267 @@ footer p {
   }
 
   .feature-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
+
 /* =========================================================
    MOBILE NAVIGATION
-========================================================= */
+   ========================================================= */
 
 @media (max-width: 850px) {
 
+  .site-header {
+    padding: 12px 20px;
+  }
+
+  .brand img {
+    height: 52px;
+  }
+
   .menu-toggle {
-    display: flex;
+    display: block;
   }
 
   .nav {
-    position: fixed;
+    position: absolute;
 
-    top: 0;
-    right: 0;
+    top: 100%;
+    left: 0;
 
-    width: min(320px, 82vw);
+    width: 100%;
 
-    height: 100vh;
-
-    margin: 0;
-
-    padding: 100px 35px 40px;
+    display: none;
 
     flex-direction: column;
 
-    align-items: flex-start;
+    align-items: stretch;
 
-    gap: 25px;
+    gap: 0;
 
-    background: var(--surface);
+    padding: 12px 20px 20px;
 
-    box-shadow:
-      -15px 0 40px rgba(0, 0, 0, 0.12);
+    background: rgba(255, 250, 245, 0.98);
 
-    transform: translateX(100%);
-
-    transition: transform 0.3s ease;
+    box-shadow: 0 12px 25px rgba(43, 33, 29, 0.10);
   }
 
   .nav.nav-open {
-    transform: translateX(0);
+    display: flex;
   }
 
   .nav a {
-    font-size: 19px;
+    padding: 14px 5px;
+
+    border-bottom: 1px solid rgba(43, 33, 29, 0.08);
   }
 
+  .nav a:last-child {
+    border-bottom: none;
+  }
+
+
+  /* -------------------------
+     MOBILE HERO
+  ------------------------- */
+
   .hero {
+    /*
+      On smaller screens the image
+      intentionally moves underneath
+      the text.
+    */
+
     grid-template-columns: 1fr;
 
     min-height: auto;
 
+    gap: 45px;
+
     padding:
-      80px
-      24px;
+      70px
+      24px
+      60px;
   }
 
   .hero-content {
-    max-width: 700px;
-  }
-
-  .hero-image {
-    max-width: 650px;
-
-    margin: 0 auto;
-
-    width: 100%;
-  }
-
-  .hero-image img {
-    height: 400px;
-  }
-
-  .cta {
-    padding:
-      80px 24px;
-
-    flex-direction: column;
-
-    align-items: flex-start;
-  }
-}
-
-/* =========================================================
-   SMALL MOBILE
-========================================================= */
-
-@media (max-width: 600px) {
-
-  .section {
-    width: min(100% - 32px, var(--container));
-
-    padding: 70px 0;
-  }
-
-  .brand {
-    margin-left: 16px;
-  }
-
-  .brand img {
-    height: 44px;
-  }
-
-  .site-header.scrolled .brand img {
-    height: 39px;
-  }
-
-  .menu-toggle {
-    margin-right: 16px;
-  }
-
-  .hero {
-    padding:
-      65px 20px 70px;
+    max-width: 100%;
   }
 
   .hero h1 {
-    font-size: 50px;
+    font-size: clamp(3rem, 13vw, 4.5rem);
   }
 
   .hero-copy {
-    font-size: 16px;
+    font-size: 1rem;
+
+    line-height: 1.75;
+  }
+
+  .hero-image {
+    justify-content: center;
   }
 
   .hero-image img {
-    height: 330px;
+    width: 100%;
 
-    border-radius: 16px;
+    max-width: 520px;
+
+    height: auto;
+
+    aspect-ratio: 1 / 1;
+
+    object-fit: cover;
+
+    border-radius: 0;
+
+    border: none;
+
+    box-shadow: none;
   }
 
-  .section-heading h2 {
-    font-size: 42px;
+
+  /* -------------------------
+     OTHER SECTIONS
+  ------------------------- */
+
+  .section {
+    padding: 75px 0;
   }
 
-  .lead {
-    font-size: 16px;
+  .feature-grid {
+    width: min(100% - 40px, 600px);
+
+    grid-template-columns: 1fr;
+
+    margin-top: 40px;
   }
 
   .menu-section {
-    padding-top: 75px;
-    padding-bottom: 75px;
-  }
-
-  .menu-category {
-    width: calc(100% - 32px);
-
-    margin-bottom: 48px;
-  }
-
-  .menu-category h3 {
-    font-size: 27px;
-  }
-
-  .menu-category h3::after {
-    display: none;
+    width: min(100% - 40px, 700px);
   }
 
   .menu-grid {
     grid-template-columns: 1fr;
-
-    gap: 10px;
   }
 
-  .menu-item-info {
-    padding: 17px 18px;
+  .visit-grid {
+    width: min(100% - 40px, 700px);
+
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+  .hero {
+    padding:
+      55px
+      20px
+      50px;
   }
 
-  .center-actions {
-    width: calc(100% - 32px);
+  .hero h1 {
+    font-size: 3rem;
+  }
 
+  .hero-actions {
     flex-direction: column;
+
+    align-items: stretch;
   }
 
-  .center-actions .button {
+  .button {
     width: 100%;
   }
 
-  .visit {
-    grid-template-columns: 1fr;
+  .section {
+    padding: 60px 0;
+  }
+
+  .section-heading {
+    width: min(100% - 40px, 600px);
+
+    margin-bottom: 40px;
+  }
+
+  .feature-grid {
+    width: calc(100% - 32px);
+  }
+
+  .feature-grid article {
+    padding: 28px;
+  }
+
+  .menu-section {
+    width: calc(100% - 32px);
+  }
+
+  .menu-card-item {
+    padding: 18px;
+  }
+
+  .menu-card-top {
+    gap: 12px;
+  }
+
+  .visit-grid {
+    width: calc(100% - 32px);
   }
 
   .visit-card {
     padding: 28px;
   }
-
-  .visit-card h2 {
-    font-size: 31px;
-  }
-
-  .cta {
-    padding: 70px 20px;
-  }
-
-  .cta .hero-actions {
-    width: 100%;
-  }
-
-  .cta .button {
-    width: 100%;
-  }
 }
+What this version changes
 
-/* =========================================================
-   REDUCED MOTION
-========================================================= */
+Desktop:
+The hero will be:
 
-@media (prefers-reduced-motion: reduce) {
+┌──────────────────────────────┬───────────────────────────┐
+│                              │                           │
+│   NEPALI CUISINE             │                           │
+│                              │       THALI PHOTO         │
+│   A Taste of Home.           │                           │
+│                              │                           │
+│   Description                │                           │
+│                              │                           │
+│   [Explore Menu] [Call]      │                           │
+│                              │                           │
+└──────────────────────────────┴───────────────────────────┘
 
-  *,
-  *::before,
-  *::after {
-    animation: none !important;
+The thali photo will have no border, no outline, no box shadow, and no rounded frame.
 
-    transition: none !important;
+On a phone, it will intentionally become:
 
-    scroll-behavior: auto !important;
-  }
+A Taste of Home.
 
-  .pre-reveal {
-    opacity: 1 !important;
+Description
 
-    transform: none !important;
-  }
-}
+[Explore Menu]
+[Call]
+
+THALI PHOTO
+
+That's the appropriate responsive behavior.
+
+One very important thing
+
+After replacing styles.css, if the photo is still underneath the description on your desktop, don't keep changing CSS randomly. The most likely problem is your index.html structure.
+
+In particular, make sure you have removed:
+
+<div class="hero-overlay"></div>
+
+and that .hero-content and .hero-image are directly inside .hero.
+
+If you want, you can also upload your current index.html and styles.css here and I can check the exact files you're using rather than making you hunt for the problem.
+
+Upload a file
+Ad
