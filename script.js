@@ -1,82 +1,239 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
 
-  /* ---------------------------------
-     Footer year
-  --------------------------------- */
-  var yearEl = document.getElementById("year");
-  if (yearEl) {
-    yearEl.textContent = new Date().getFullYear();
+  /* =====================================================
+     FOOTER YEAR
+  ===================================================== */
+
+  const year = document.getElementById("year");
+
+  if (year) {
+    year.textContent = new Date().getFullYear();
   }
 
-  /* ---------------------------------
-     Header shrinks + gets a shadow on scroll
-  --------------------------------- */
-  var header = document.querySelector(".site-header");
-  if (header) {
-    var onScroll = function () {
-      if (window.scrollY > 10) {
-        header.classList.add("scrolled");
-      } else {
-        header.classList.remove("scrolled");
-      }
-    };
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-  }
 
-  /* ---------------------------------
-     Mobile nav toggle
-  --------------------------------- */
-  var toggle = document.querySelector(".menu-toggle");
-  var nav = document.querySelector(".nav");
+  /* =====================================================
+     HEADER SCROLL EFFECT
+  ===================================================== */
 
-  if (toggle && nav) {
-    toggle.addEventListener("click", function () {
-      var isOpen = nav.classList.toggle("nav-open");
-      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
-      toggle.textContent = isOpen ? "✕" : "☰";
-    });
+  const header = document.querySelector(".site-header");
 
-    // Close the mobile nav after tapping a link
-    nav.querySelectorAll("a").forEach(function (link) {
-      link.addEventListener("click", function () {
-        nav.classList.remove("nav-open");
-        toggle.setAttribute("aria-expanded", "false");
-        toggle.textContent = "☰";
-      });
-    });
-  }
+  const updateHeader = () => {
 
-  /* ---------------------------------
-     Scroll-reveal animations
-     Progressive enhancement: elements are only hidden once we
-     add "pre-reveal" here, so the page stays fully visible if
-     JavaScript is blocked or fails.
-  --------------------------------- */
-  var revealTargets = document.querySelectorAll(
-    ".feature-grid article, .menu-card-item, .visit-card, .section-heading, .lead"
+    if (!header) return;
+
+    if (window.scrollY > 30) {
+      header.classList.add("scrolled");
+    } else {
+      header.classList.remove("scrolled");
+    }
+
+  };
+
+  updateHeader();
+
+  window.addEventListener(
+    "scroll",
+    updateHeader,
+    { passive: true }
   );
 
-  if ("IntersectionObserver" in window && revealTargets.length) {
-    revealTargets.forEach(function (el) {
-      el.classList.add("pre-reveal");
-    });
 
-    var observer = new IntersectionObserver(
-      function (entries, obs) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
-            obs.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+  /* =====================================================
+     MOBILE NAVIGATION
+  ===================================================== */
+
+  const menuButton =
+    document.querySelector(".menu-toggle");
+
+  const navigation =
+    document.querySelector(".nav");
+
+  if (menuButton && navigation) {
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      "false"
     );
 
-    revealTargets.forEach(function (el) {
-      observer.observe(el);
-    });
+    menuButton.setAttribute(
+      "aria-label",
+      "Open navigation"
+    );
+
+
+    const closeMenu = () => {
+
+      navigation.classList.remove("nav-open");
+
+      menuButton.textContent = "☰";
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+      menuButton.setAttribute(
+        "aria-label",
+        "Open navigation"
+      );
+
+    };
+
+
+    menuButton.addEventListener(
+      "click",
+      () => {
+
+        const open =
+          navigation.classList.toggle(
+            "nav-open"
+          );
+
+        if (open) {
+
+          menuButton.textContent = "✕";
+
+          menuButton.setAttribute(
+            "aria-expanded",
+            "true"
+          );
+
+          menuButton.setAttribute(
+            "aria-label",
+            "Close navigation"
+          );
+
+        } else {
+
+          closeMenu();
+
+        }
+
+      }
+    );
+
+
+    navigation
+      .querySelectorAll("a")
+      .forEach(link => {
+
+        link.addEventListener(
+          "click",
+          closeMenu
+        );
+
+      });
+
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (event.key === "Escape") {
+          closeMenu();
+        }
+
+      }
+    );
+
   }
+
+
+  /* =====================================================
+     SCROLL REVEAL
+  ===================================================== */
+
+  const revealElements =
+    document.querySelectorAll(
+      ".feature-grid article, " +
+      ".menu-card-item, " +
+      ".visit-card, " +
+      ".section-heading, " +
+      ".lead"
+    );
+
+
+  if (
+    "IntersectionObserver" in window &&
+    revealElements.length > 0
+  ) {
+
+    revealElements.forEach(element => {
+
+      element.classList.add(
+        "pre-reveal"
+      );
+
+    });
+
+
+    const observer =
+      new IntersectionObserver(
+        entries => {
+
+          entries.forEach(entry => {
+
+            if (!entry.isIntersecting) {
+              return;
+            }
+
+            entry.target.classList.add(
+              "is-visible"
+            );
+
+            observer.unobserve(
+              entry.target
+            );
+
+          });
+
+        },
+        {
+          threshold: 0.08,
+
+          rootMargin:
+            "0px 0px -30px 0px"
+        }
+      );
+
+
+    revealElements.forEach(element => {
+
+      observer.observe(element);
+
+    });
+
+  }
+
+
+  /* =====================================================
+     CLOSE MOBILE MENU WHEN SCREEN GETS WIDER
+  ===================================================== */
+
+  window.addEventListener(
+    "resize",
+    () => {
+
+      if (
+        window.innerWidth > 850 &&
+        navigation &&
+        menuButton
+      ) {
+
+        navigation.classList.remove(
+          "nav-open"
+        );
+
+        menuButton.textContent = "☰";
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+      }
+
+    }
+  );
 
 });
