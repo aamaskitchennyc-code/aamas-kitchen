@@ -681,14 +681,14 @@ object-fit: contain;
 
 object-position: center;
 
-border: 0;
+border: none;
 
-outline: 0;
+outline: none;
 
 border-radius: 5px;
 
 box-shadow:
-0 30px 70px rgba(0, 0, 0, 0.34);
+none;
 
 animation:
 imageFloat
