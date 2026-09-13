@@ -1,61 +1,82 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // 1. Dynamic Footer Year
-  const yearEl = document.getElementById("year");
-  if (yearEl) yearEl.textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", function () {
 
-  // 2. Sticky Header Transition on Scroll
-  const header = document.querySelector(".site-header");
-  window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-      header?.classList.add("scrolled");
-    } else {
-      header?.classList.remove("scrolled");
-    }
-  });
+  /* ---------------------------------
+     Footer year
+  --------------------------------- */
+  var yearEl = document.getElementById("year");
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
+  }
 
-  // 3. Mobile Navigation Menu Toggle
-  const menuToggle = document.querySelector(".menu-toggle");
-  const nav = document.querySelector(".nav");
-  const navLinks = document.querySelectorAll(".nav a");
+  /* ---------------------------------
+     Header shrinks + gets a shadow on scroll
+  --------------------------------- */
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var onScroll = function () {
+      if (window.scrollY > 10) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
 
-  if (menuToggle && nav) {
-    menuToggle.addEventListener("click", () => {
-      nav.classList.toggle("open");
-      const isOpen = nav.classList.contains("open");
-      menuToggle.setAttribute("aria-expanded", isOpen);
-      menuToggle.textContent = isOpen ? "✕" : "☰";
+  /* ---------------------------------
+     Mobile nav toggle
+  --------------------------------- */
+  var toggle = document.querySelector(".menu-toggle");
+  var nav = document.querySelector(".nav");
+
+  if (toggle && nav) {
+    toggle.addEventListener("click", function () {
+      var isOpen = nav.classList.toggle("nav-open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      toggle.textContent = isOpen ? "✕" : "☰";
     });
 
-    // Close mobile nav when clicking any nav link
-    navLinks.forEach((link) => {
-      link.addEventListener("click", () => {
-        nav.classList.remove("open");
-        menuToggle.textContent = "☰";
+    // Close the mobile nav after tapping a link
+    nav.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        nav.classList.remove("nav-open");
+        toggle.setAttribute("aria-expanded", "false");
+        toggle.textContent = "☰";
       });
     });
   }
 
-  // 4. Scroll Reveal Animations via Intersection Observer
-  const revealElements = document.querySelectorAll(
-    ".section, .menu-category, .feature-grid article, .menu-card-item, .visit-card"
+  /* ---------------------------------
+     Scroll-reveal animations
+     Progressive enhancement: elements are only hidden once we
+     add "pre-reveal" here, so the page stays fully visible if
+     JavaScript is blocked or fails.
+  --------------------------------- */
+  var revealTargets = document.querySelectorAll(
+    ".feature-grid article, .menu-card-item, .visit-card, .section-heading, .lead"
   );
 
-  revealElements.forEach((el) => el.classList.add("reveal"));
+  if ("IntersectionObserver" in window && revealTargets.length) {
+    revealTargets.forEach(function (el) {
+      el.classList.add("pre-reveal");
+    });
 
-  const revealObserver = new IntersectionObserver(
-    (entries, observer) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.1,
-      rootMargin: "0px 0px -40px 0px"
-    }
-  );
+    var observer = new IntersectionObserver(
+      function (entries, obs) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
 
-  revealElements.forEach((el) => revealObserver.observe(el));
+    revealTargets.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
 });
