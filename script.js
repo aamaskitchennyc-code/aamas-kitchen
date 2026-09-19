@@ -47,13 +47,9 @@ const navigation = document.querySelector(".nav");
 
 if (menuButton && navigation) {
 
-  menuButton.setAttribute("aria-expanded", "false");
-  menuButton.setAttribute("aria-label", "Open navigation");
-
   const closeMenu = () => {
     navigation.classList.remove("nav-open");
     menuButton.classList.remove("is-open");
-    document.body.classList.remove("nav-open");
 
     menuButton.setAttribute("aria-expanded", "false");
     menuButton.setAttribute("aria-label", "Open navigation");
@@ -65,7 +61,6 @@ if (menuButton && navigation) {
       navigation.classList.toggle("nav-open");
 
     menuButton.classList.toggle("is-open", isOpen);
-    document.body.classList.toggle("nav-open", isOpen);
 
     menuButton.setAttribute(
       "aria-expanded",
@@ -74,22 +69,23 @@ if (menuButton && navigation) {
 
     menuButton.setAttribute(
       "aria-label",
-      isOpen ? "Close navigation" : "Open navigation"
+      isOpen
+        ? "Close navigation"
+        : "Open navigation"
     );
 
   });
 
-  navigation
-    .querySelectorAll("a")
-    .forEach(link => {
-      link.addEventListener("click", closeMenu);
-    });
+  navigation.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", closeMenu);
+  });
 
   document.addEventListener("keydown", event => {
     if (event.key === "Escape") {
       closeMenu();
     }
   });
+
 }
 
   /* =====================================================
