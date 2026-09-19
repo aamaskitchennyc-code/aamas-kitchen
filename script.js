@@ -558,12 +558,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const response =
             await fetch(
-              "YOUR_CAREERS_API_URL",
-              {
-                method: "POST",
-                body: formData
-              }
-            );
+  "https://aamas-kitchen-careers.aamaskitchen-nyc.workers.dev",
+  {
+    method: "POST",
+    body: formData
+  }
+);
 
 
           if (!response.ok) {
