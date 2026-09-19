@@ -38,106 +38,59 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 
 
-  /* =====================================================
-     MOBILE NAVIGATION
-  ===================================================== */
+ /* =====================================================
+   MOBILE NAVIGATION
+===================================================== */
 
-  const menuButton =
-    document.querySelector(".menu-toggle");
+const menuButton = document.querySelector(".menu-toggle");
+const navigation = document.querySelector(".nav");
 
-  const navigation =
-    document.querySelector(".nav");
+if (menuButton && navigation) {
 
-  if (menuButton && navigation) {
+  menuButton.setAttribute("aria-expanded", "false");
+  menuButton.setAttribute("aria-label", "Open navigation");
+
+  const closeMenu = () => {
+    navigation.classList.remove("nav-open");
+    menuButton.classList.remove("is-open");
+    document.body.classList.remove("nav-open");
+
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.setAttribute("aria-label", "Open navigation");
+  };
+
+  menuButton.addEventListener("click", () => {
+
+    const isOpen =
+      navigation.classList.toggle("nav-open");
+
+    menuButton.classList.toggle("is-open", isOpen);
+    document.body.classList.toggle("nav-open", isOpen);
 
     menuButton.setAttribute(
       "aria-expanded",
-      "false"
+      isOpen ? "true" : "false"
     );
 
     menuButton.setAttribute(
       "aria-label",
-      "Open navigation"
+      isOpen ? "Close navigation" : "Open navigation"
     );
 
+  });
 
-    const closeMenu = () => {
+  navigation
+    .querySelectorAll("a")
+    .forEach(link => {
+      link.addEventListener("click", closeMenu);
+    });
 
-      navigation.classList.remove("nav-open");
-
-      menuButton.textContent = "☰";
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menuButton.setAttribute(
-        "aria-label",
-        "Open navigation"
-      );
-
-    };
-
-
-    menuButton.addEventListener(
-      "click",
-      () => {
-
-        const open =
-          navigation.classList.toggle(
-            "nav-open"
-          );
-
-        if (open) {
-
-          menuButton.textContent = "✕";
-
-          menuButton.setAttribute(
-            "aria-expanded",
-            "true"
-          );
-
-          menuButton.setAttribute(
-            "aria-label",
-            "Close navigation"
-          );
-
-        } else {
-
-          closeMenu();
-
-        }
-
-      }
-    );
-
-
-    navigation
-      .querySelectorAll("a")
-      .forEach(link => {
-
-        link.addEventListener(
-          "click",
-          closeMenu
-        );
-
-      });
-
-
-    document.addEventListener(
-      "keydown",
-      event => {
-
-        if (event.key === "Escape") {
-          closeMenu();
-        }
-
-      }
-    );
-
-  }
-
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+}
 
   /* =====================================================
      SCROLL REVEAL
